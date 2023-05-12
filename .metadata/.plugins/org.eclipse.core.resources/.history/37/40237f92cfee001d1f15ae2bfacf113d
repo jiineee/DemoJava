@@ -1,0 +1,62 @@
+package quiz22_1;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class MainClass {
+	public static void main(String[] args) {
+		/*
+		 * 1.버퍼리더를 사용해서 건담.txt를 읽어들입니다.
+		 * 2.정규표현식을 이용해서 날짜, 지점, 등급, 내용, 가격 을 정규표현식으로 패턴분석
+		 * Product객체에 저장하고 리스트에 저장
+		 * 
+		 * 3.외부라이브러리 (POI) - 자바에서 엑셀파일로 xlsx 형태로 파일을 쓸 수 있도록하는 기능
+		 *   하나에 시트에 각 행데이터를 엑셀로 파일로 출력 
+		 *   
+		 */
+		List<Product> list = new ArrayList<>();
+		String path = "C:\\Users\\user\\Desktop\\coures\\java\\work\\Quiz\\src\\quiz22_1\\건담.txt";
+	
+		try(BufferedReader br = new BufferedReader(new FileReader(path))) {	
+
+			String str;
+			while((str = br.readLine()) != null) {
+				String pattern1 = "\\d+-\\d+-\\d+";
+				Matcher m1 = Pattern.compile(pattern1).matcher(str);
+				String pattern2 = "[가-힣]+";
+				Matcher m2 = Pattern.compile(pattern2).matcher(str);
+				String pattern3 = "\\[[A-Z]+\\]";
+				Matcher m3 = Pattern.compile(pattern3).matcher(str);
+				String pattern4 = "[가-힣]+";
+				Matcher m4 = Pattern.compile(pattern4).matcher(str);
+				String pattern5 = "\\d+,*\\d+원";
+				Matcher m5 = Pattern.compile(pattern5).matcher(str);
+
+				
+				if(m1.find()&& m2.find() && m3.find() && m4.find()&& m5.find()) {
+					System.out.println(m1.group() + " " +m2.group() + " " +m3.group() +" " + m4.group() + " " +m5.group());
+
+				}
+				
+				//Product p = new Product(day, str, pattern3, pattern4, pattern5)
+			}
+				
+	
+			
+				
+				
+		} catch (Exception e) {
+				
+			e.printStackTrace();
+		}
+	
+	}
+
+	
+}

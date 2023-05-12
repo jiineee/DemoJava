@@ -1,0 +1,11 @@
+package day18.api.thread;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		
+		//1.작업쓰레드로 사용할 객체생성
+		TreadTest test = ndw TreadTest();
+	}
+
+}

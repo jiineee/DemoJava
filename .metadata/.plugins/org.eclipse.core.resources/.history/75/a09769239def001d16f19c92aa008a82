@@ -1,0 +1,33 @@
+package day0508;
+
+
+
+import java.util.Scanner;
+
+public class B2563 {
+	public static void main(String[] args) {
+		
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int num = scan.nextInt();
+		int[][] arr = new int [100][100];
+		int count = 0;
+		
+		for(int i = 1; i <= num; i++) {
+			int x = scan.nextInt();
+			int y = scan.nextInt();
+			for(int j = x; j < x+10; j++) {
+				for(int h = y; h < y+10; h++) {
+					if(arr[x][y] == 1) {
+						arr[x][y] = 1;
+						++count;
+					}
+				}
+			}
+		}
+		System.out.println(count);
+		
+		scan.close();
+	}
+}

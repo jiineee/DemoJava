@@ -1,0 +1,40 @@
+package quiz21_1;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class MainClass {
+	public static void main(String[] args) {
+		String path = "C:\\Users\\user\\Desktop\\coures\\java\\work\\Quiz\\bin\\quiz21\\주택도시보증공사_전국 평균 분양가격.csv";
+		
+		try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path) , "EUC-KR"))) {
+			
+			String str;
+			while((str = br.readLine()) != null) {
+				
+				String[] arr = str.split("," , 5);
+				
+				String region = arr[0];
+				String size = arr[1];
+				String year = arr[2];
+				String month = arr[3];
+				String price = arr[4];
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+}
